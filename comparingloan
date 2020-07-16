@@ -19,23 +19,7 @@ public class Main {
         System.out.println("Interest Rate"+"\t\t\t"+"Monthly Payment" +"\t\t\t"+"Total Payment"+
                 "\n"+ "_______________________________________________________________");
         double start_Interest= 5.000;
-        for (int j = 5; j < 8 ; j++) {
-            for (double i = 0; i < 9; i++) {
-                double x = start_Interest + i / 8;   // increment each month point by 0.125
-                double monthly_InterestRate = x / (month_perYear * percent);   // convert year interest into per month
-                // calculate monthly payment
-                double monthly_payment = (loan_Amount * monthly_InterestRate) / (1 - (1 / (Math.pow((1 + monthly_InterestRate), (12 * numberOfYears)))));
-                // calculate total interest
-                double total_Interest = monthly_payment * 12 * numberOfYears;
-                //convert the interest into decimal place
-                float usq= Float.parseFloat(format.format(monthly_payment));
-                System.out.println(truncateDecimal(x, 3) + "%" + "\t\t\t\t\t" +
-                        NumberFormat.getCurrencyInstance(Locale.US).format(usq) + "\t\t\t\t\t" +
-                        NumberFormat.getCurrencyInstance(Locale.US).format(Float.parseFloat(format.format(total_Interest))));
-                System.out.println("_______________________________________________________________");
-            }
-            start_Interest++;
-        }
+        
     }
     //   truncate Decimal is used to convert the number upto 3 decimal places..
     private static BigDecimal truncateDecimal(double x,int numberofDecimals)
